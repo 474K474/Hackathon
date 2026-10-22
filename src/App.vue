@@ -14,6 +14,7 @@
       >
         <header class="topbar">
           <span class="logo">риск/скор</span>
+          <button class="pres-btn" title="Открыть презентацию проекта" @click="presRef?.open()">Презентация</button>
         </header>
 
         <div class="hero">
@@ -120,6 +121,7 @@
       </div>
     </div>
   </div>
+  <PresentationOverlay ref="presRef" />
 </template>
 
 <script setup>
@@ -133,11 +135,14 @@ import FileUploadComponent from '@/components/FileUploadComponent.vue';
 import CardComponent from '@/components/CardComponent.vue';
 import ChartComponent from '@/components/ChartComponent.vue';
 import WordsComponent from '@/components/WordsComponent.vue';
+import PresentationOverlay from '@/components/PresentationOverlay.vue';
 import { clearAppState, stateData } from '@/composables/useAppState.js';
 import { addToHistory, history, seedHistory } from '@/composables/useHistory.js';
 import { applyOverrides, classify, formatId, pct1 } from '@/utils/risk.js';
 
 const toast = useToast();
+
+const presRef = ref(null);      // презентация поверх сайта
 
 const isMock = import.meta.env.VITE_IS_MOCK_MODE === 'true';
 
@@ -378,6 +383,24 @@ const startLoading = async (payload) => {
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
+}
+
+.pres-btn {
+  height: 38px;
+  padding: 0 18px;
+  border: 1px solid #D6D6D0;
+  border-radius: 999px;
+  background: transparent;
+  color: #161616;
+  font: 500 13.5px Onest, sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.pres-btn:hover {
+  background: #161616;
+  border-color: #161616;
+  color: #fff;
 }
 
 .logo {
