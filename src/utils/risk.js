@@ -6,6 +6,8 @@ export const COLORS = {
     upText: '#B8452D',
     downText: '#2F7550',
     neutral: '#A9A9A2',
+    baseline: '#3C6E9F',   // эталонное значение (не-банкроты)
+    baselineBg: '#E2EBF4',
 };
 
 const LEVELS = [

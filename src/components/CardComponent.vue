@@ -13,12 +13,11 @@
         <button
             class="val"
             :class="{ edited: f.changed }"
-            :title="'Эталон: ' + num(f.baseline_value)"
             @click="open(f)"
         >
           <span class="pen">✎</span><span>{{ num(f.value) }}</span>
         </button>
-        <span class="delta" :style="{ color: f.color }">{{ f.delta }}</span>
+        <span class="base" title="Эталонное значение">{{ num(f.baseline_value) }}</span>
       </div>
     </div>
 
@@ -37,7 +36,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import ChangeFeatureComponent from '@/components/ChangeFeatureComponent.vue';
-import { COLORS, num, signed } from '@/utils/risk.js';
+import { COLORS, num } from '@/utils/risk.js';
 
 const props = defineProps({
   // [{ name, raw_value, baseline_value, shap, value, changed }]
@@ -55,7 +54,6 @@ const rows = computed(() => props.features.map(f => {
     ...f,
     arrow: flat ? '·' : f.shap > 0 ? '↑' : '↓',
     color: flat ? '#8A8A85' : f.shap > 0 ? COLORS.upText : COLORS.downText,
-    delta: signed(f.shap),
   };
 }));
 
@@ -161,10 +159,18 @@ h2 {
   color: #8A8A85;
 }
 
-.delta {
-  font-size: 15px;
-  font-weight: 600;
-  text-align: right;
+.base {
+  justify-self: end;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #E2EBF4; /* COLORS.baselineBg */
+  color: #3C6E9F;      /* COLORS.baseline */
+  font-size: 14px;
+  font-weight: 500;
   white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

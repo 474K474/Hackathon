@@ -109,6 +109,7 @@
         <div class="legend">
           <span class="lg"><span class="sw" style="background:#D0603F"></span>повышает риск</span>
           <span class="lg"><span class="sw" style="background:#4C9A6F"></span>снижает риск</span>
+          <span class="lg"><span class="sw" style="background:#3C6E9F"></span>эталонное значение (среднее по не-банкротам)</span>
           <span class="muted">— цвета одинаковы для признаков, факторов и слов</span>
         </div>
 
