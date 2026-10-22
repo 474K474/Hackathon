@@ -30,6 +30,14 @@ export const signed = (v, digits = 2) => {
 
 export const num = (v) => (v == null ? '—' : String(v).replace('.', ','));
 
+// Округление до сотых: 3.14159 -> "3,14", 14 -> "14", 0.5 -> "0,5"
+export const num2 = (v) => {
+    if (v == null || v === '') return '—';
+    const n = Number(v);
+    if (!Number.isFinite(n)) return String(v);
+    return String(Math.round(n * 100) / 100).replace('.', ',');
+};
+
 export const formatId = (id) => String(id ?? '').replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
 const logit = (p) => Math.log(p / (1 - p));

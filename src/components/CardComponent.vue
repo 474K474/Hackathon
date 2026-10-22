@@ -15,9 +15,9 @@
             :class="{ edited: f.changed }"
             @click="open(f)"
         >
-          <span class="pen">✎</span><span>{{ num(f.value) }}</span>
+          <span class="pen">✎</span><span>{{ num2(f.value) }}</span>
         </button>
-        <span class="base" title="Эталонное значение">{{ num(f.baseline_value) }}</span>
+        <span class="base" title="Эталонное значение">{{ num2(f.baseline_value) }}</span>
       </div>
     </div>
 
@@ -36,7 +36,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import ChangeFeatureComponent from '@/components/ChangeFeatureComponent.vue';
-import { COLORS, num } from '@/utils/risk.js';
+import { COLORS, num2 } from '@/utils/risk.js';
 
 const props = defineProps({
   // [{ name, raw_value, baseline_value, shap, value, changed }]
