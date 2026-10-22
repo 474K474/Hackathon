@@ -301,6 +301,17 @@ table.t td.n { font: 500 22px var(--display); letter-spacing: -.03em; color: var
 .shot figcaption b { color: var(--ink); font-weight: 600; }
 .slide .shots { flex: none; }
 
+.sum { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; min-height: 0; }
+.sum-col { display: flex; flex-direction: column; min-width: 0; }
+.sum-col h3 { margin-bottom: 10px; }
+.sum-row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 18px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--line); }
+.sum-row .k { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.sum-row p, .lim-row p { margin: 0; font-size: 15.5px; line-height: 1.45; color: var(--soft); }
+.sum-row b { color: var(--ink); font-weight: 600; }
+.lim-row { display: flex; flex-direction: column; gap: 4px; background: var(--card); border-radius: 12px; padding: 12px 18px; margin-bottom: 8px; }
+.lim-row .l { color: var(--ink); font-weight: 600; }
+.takeaway { flex: none; background: var(--ink); color: #fff; border-radius: 14px; padding: 18px 26px; font: 500 19px/1.4 var(--display); letter-spacing: -.02em; }
+
 /* заметки докладчика: клавиша N */
 .notes { display: none; }
 .notes-panel {
@@ -601,30 +612,27 @@ table.t td.n { font: 500 22px var(--display); letter-spacing: -.03em; color: var
       <section class="slide" data-section="Итоги">
         <div class="head">
           <span class="eyebrow">Итоги</span>
-          <h2>Что получилось и где границы решения</h2>
+          <h2>Задача закрыта целиком: от модели до работающего сервиса</h2>
         </div>
-        <div class="cols c3 grow">
-          <div class="limits">
-            <h3>Результаты</h3>
-            <div class="item"><span class="mk">·</span><p><b>ROC-AUC 0,7073</b> на валидации и <b>0,7112</b> в лидерборде, место [N].</p></div>
-            <div class="item"><span class="mk">·</span><p><b>Работающий прототип:</b> фронтенд, шлюз и ML-сервис, оба сценария прогноза.</p></div>
-            <div class="item"><span class="mk">·</span><p><b>Объяснение прогноза:</b> пять признаков по SHAP и слова для каждого человека.</p></div>
-            <div class="item"><span class="mk">·</span><p><b>Сборка:</b> три независимые ветки в CI, модель подключается томом.</p></div>
+        <div class="sum grow">
+          <div class="sum-col">
+            <h3>Что сделали</h3>
+            <div class="sum-row"><span class="k">ML-модель</span><p>Ансамбль LightGBM + XGBoost. ROC-AUC <b>0,7073</b> на валидации и <b>0,7112</b> в лидерборде, место [N].</p></div>
+            <div class="sum-row"><span class="k">Backend</span><p>Шлюз и ML-сервис: прогноз по index и по набору признаков, проверка каждого запроса по контракту.</p></div>
+            <div class="sum-row"><span class="k">Интерфейс</span><p>Вероятность, уровень риска и рекомендация; объяснение по признакам и словам; отчёт PDF.</p></div>
+            <div class="sum-row"><span class="k">Сборка</span><p>Три независимых модуля, параллельная сборка в CI, модель подключается томом без пересборки.</p></div>
+            <div class="sum-row"><span class="k">Безопасность</span><p>Проверка ПУТ ПО [итог], образ без root, модели без pickle.</p></div>
           </div>
-          <div class="limits">
-            <h3>Ограничения</h3>
-            <div class="item"><span class="mk">·</span><p><b>Ранжирование, а не приговор.</b> При 1,35 % банкротов — кого проверить первым, не автоотказ.</p></div>
-            <div class="item"><span class="mk">·</span><p><b>Признаки анонимны.</b> Понятно объяснить можно только слова.</p></div>
-            <div class="item"><span class="mk">·</span><p><b>Справедливость и 152-ФЗ.</b> Слова косвенно отражают регион; текстовые данные о человеке — персональные данные.</p></div>
-            <div class="item"><span class="mk">·</span><p><b>«Что если» без модели.</b> Пересчёт риска пока приближённый, в интерфейсе.</p></div>
-          </div>
-          <div class="limits">
-            <h3>Дальше</h3>
-            <div class="item"><span class="mk">·</span><p><b>«Что если» через ML-сервис:</b> риск при изменении признаков пересчитывает сама модель.</p></div>
-            <div class="item"><span class="mk">·</span><p><b>Проверка на справедливость</b> по регионам перед внедрением.</p></div>
+          <div class="sum-col">
+            <h3>Границы решения и что с ними делаем</h3>
+            <div class="lim-row"><p class="l">AUC 0,7 — ранжирование, а не приговор</p><p class="r">Система подсказывает, кого проверить первым. Решение остаётся за человеком.</p></div>
+            <div class="lim-row"><p class="l">Признаки анонимны</p><p class="r">Объясняем оценку через слова и сравнение со средним у не банкротов.</p></div>
+            <div class="lim-row"><p class="l">Слова отражают регион, тексты — персональные данные</p><p class="r">Перед внедрением — проверка на справедливость и по 152-ФЗ.</p></div>
+            <div class="lim-row"><p class="l">«Что если» считается приближённо</p><p class="r">Следующий шаг — пересчёт риска самой моделью в ML-сервисе.</p></div>
           </div>
         </div>
-              <aside class="notes">0:55. Итого. Модель — ансамбль LightGBM и XGBoost: ROC-AUC 0,7073 на валидации и 0,7112 в лидерборде. Работающий прототип из трёх модулей, оба сценария прогноза, объяснение каждого прогноза и автоматическая сборка.<br><br>Границы решения. Первое: AUC 0,7 — это ранжирование по риску, а не приговор; при 1,35 процента банкротов это инструмент, чтобы решить, кого проверить первым. Второе: признаки анонимны, понятно объяснить можно только слова. Третье: слова косвенно отражают регион — в топе есть города, — а текстовые данные о человеке — персональные данные по 152-ФЗ, нужна проверка на справедливость. Четвёртое: сценарий «что если» пока считается в интерфейсе приближённо и не обращается к модели.<br><br>Дальше — подключить «что если» к ML-сервису, чтобы риск пересчитывала сама модель, и проверить модель на справедливость.</aside>
+        <div class="takeaway">Модель ранжирует людей по риску банкротства и объясняет каждую оценку — это инструмент для аналитика, а не автоматический вердикт.</div>
+        <aside class="notes">1:05. Подведём итог. Задание было из пяти частей, и каждая закрыта. Модель — ансамбль LightGBM и XGBoost: ROC-AUC 0,7073 на валидации и 0,7112 в лидерборде. Backend — шлюз и ML-сервис: прогноз и по номеру человека, и по набору признаков. Интерфейс показывает вероятность, уровень риска и объясняет оценку. Сборка автоматическая, код прошёл проверку безопасности.<br><br>Теперь честно о границах. AUC 0,7 — это ранжирование, а не приговор: система подсказывает, кого проверить первым, а решение остаётся за человеком. Признаки анонимны, поэтому объясняем оценку через слова и сравнение со средним у не банкротов. Слова косвенно отражают регион, а текстовые данные — персональные, поэтому перед внедрением нужна проверка на справедливость. И «что если» пока считается в интерфейсе приближённо — следующий шаг подключить его к модели.<br><br>Главное: у нас не просто цифра в лидерборде, а инструмент, который ранжирует людей по риску банкротства и объясняет каждую оценку.</aside>
       </section>
 
       <!-- 13 · Финал -->
