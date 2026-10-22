@@ -1,0 +1,106 @@
+{
+  "184327": {
+    "id": 184327,
+    "probability": 0.89,
+    "top_features": [
+      { "name": "feature_1043", "raw_value": 14, "baseline_value": 2, "shap_value": 1.12 },
+      { "name": "feature_87", "raw_value": 0.71, "baseline_value": 0.18, "shap_value": 0.84 },
+      { "name": "feature_512", "raw_value": 6, "baseline_value": 1, "shap_value": 0.57 },
+      { "name": "feature_1290", "raw_value": 3.2, "baseline_value": 5.8, "shap_value": -0.31 },
+      { "name": "feature_33", "raw_value": 0.42, "baseline_value": 0.3, "shap_value": 0.22 }
+    ],
+    "top_words": [
+      { "name": "коллектор", "shap_value": 0.81 },
+      { "name": "займ", "shap_value": 0.64 },
+      { "name": "просрочка", "shap_value": 0.58 },
+      { "name": "банкротство", "shap_value": 0.52 },
+      { "name": "рассрочка", "shap_value": 0.31 },
+      { "name": "зарплата", "shap_value": -0.24 },
+      { "name": "работа", "shap_value": -0.15 }
+    ]
+  },
+  "52011": {
+    "id": 52011,
+    "probability": 0.46,
+    "top_features": [
+      { "name": "feature_87", "raw_value": 0.44, "baseline_value": 0.18, "shap_value": 0.41 },
+      { "name": "feature_201", "raw_value": 9, "baseline_value": 4, "shap_value": 0.36 },
+      { "name": "feature_764", "raw_value": 27, "baseline_value": 40, "shap_value": -0.29 },
+      { "name": "feature_1043", "raw_value": 5, "baseline_value": 2, "shap_value": 0.27 },
+      { "name": "feature_9", "raw_value": 1, "baseline_value": 0, "shap_value": -0.18 }
+    ],
+    "top_words": [
+      { "name": "кредит", "shap_value": 0.38 },
+      { "name": "долг", "shap_value": 0.33 },
+      { "name": "ремонт", "shap_value": 0.12 },
+      { "name": "ипотека", "shap_value": -0.21 },
+      { "name": "работа", "shap_value": -0.27 },
+      { "name": "отпуск", "shap_value": -0.11 }
+    ]
+  },
+  "301877": {
+    "id": 301877,
+    "probability": 0.19,
+    "top_features": [
+      { "name": "feature_764", "raw_value": 52, "baseline_value": 40, "shap_value": -0.46 },
+      { "name": "feature_201", "raw_value": 7, "baseline_value": 4, "shap_value": 0.32 },
+      { "name": "feature_1290", "raw_value": 7.1, "baseline_value": 5.8, "shap_value": -0.25 },
+      { "name": "feature_418", "raw_value": 0.63, "baseline_value": 0.5, "shap_value": 0.19 },
+      { "name": "feature_33", "raw_value": 0.21, "baseline_value": 0.3, "shap_value": -0.12 }
+    ],
+    "top_words": [
+      { "name": "рассрочка", "shap_value": 0.22 },
+      { "name": "авто", "shap_value": -0.08 },
+      { "name": "зарплата", "shap_value": -0.35 },
+      { "name": "отпуск", "shap_value": -0.19 },
+      { "name": "работа", "shap_value": -0.3 }
+    ]
+  },
+  "7743": {
+    "id": 7743,
+    "probability": 0.05,
+    "top_features": [
+      { "name": "feature_764", "raw_value": 71, "baseline_value": 40, "shap_value": -0.88 },
+      { "name": "feature_1290", "raw_value": 9.4, "baseline_value": 5.8, "shap_value": -0.61 },
+      { "name": "feature_87", "raw_value": 0.05, "baseline_value": 0.18, "shap_value": -0.34 },
+      { "name": "feature_512", "raw_value": 2, "baseline_value": 1, "shap_value": 0.14 },
+      { "name": "feature_9", "raw_value": 1, "baseline_value": 0, "shap_value": -0.11 }
+    ],
+    "top_words": []
+  },
+  "219005": {
+    "id": 219005,
+    "probability": 0.71,
+    "top_features": [
+      { "name": "feature_512", "raw_value": 8, "baseline_value": 1, "shap_value": 0.77 },
+      { "name": "feature_33", "raw_value": 0.68, "baseline_value": 0.3, "shap_value": 0.49 },
+      { "name": "feature_418", "raw_value": 0.31, "baseline_value": 0.5, "shap_value": -0.28 },
+      { "name": "feature_1043", "raw_value": 7, "baseline_value": 2, "shap_value": 0.26 },
+      { "name": "feature_764", "raw_value": 35, "baseline_value": 40, "shap_value": 0.09 }
+    ],
+    "top_words": [
+      { "name": "займ", "shap_value": 0.55 },
+      { "name": "долг", "shap_value": 0.42 },
+      { "name": "кредит", "shap_value": 0.29 },
+      { "name": "ипотека", "shap_value": -0.17 },
+      { "name": "ремонт", "shap_value": 0.08 }
+    ]
+  },
+  "88410": {
+    "id": 88410,
+    "probability": 0.27,
+    "top_features": [
+      { "name": "feature_201", "raw_value": 11, "baseline_value": 4, "shap_value": 0.52 },
+      { "name": "feature_764", "raw_value": 49, "baseline_value": 40, "shap_value": -0.37 },
+      { "name": "feature_87", "raw_value": 0.29, "baseline_value": 0.18, "shap_value": 0.21 },
+      { "name": "feature_9", "raw_value": 0, "baseline_value": 0, "shap_value": 0.0 },
+      { "name": "feature_1290", "raw_value": 6.4, "baseline_value": 5.8, "shap_value": -0.14 }
+    ],
+    "top_words": [
+      { "name": "рассрочка", "shap_value": 0.27 },
+      { "name": "кредит", "shap_value": 0.18 },
+      { "name": "работа", "shap_value": -0.22 },
+      { "name": "зарплата", "shap_value": -0.19 }
+    ]
+  }
+}

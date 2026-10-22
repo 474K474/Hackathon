@@ -1,0 +1,7 @@
+[
+  {"status": "preload"},
+  {"status": "inference"},
+  {"status": "inference"},
+  {"status": "visual"},
+  {"status": "success"}
+]

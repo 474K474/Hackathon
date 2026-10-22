@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Шрифты дизайна «РискСкор»: Onest — основной текст, Unbounded — заголовки и цифры */
+@layer base {
+    html, body {
+        margin: 0;
+        background: #F3F3F0;
+        color: #161616;
+        font-family: Onest, Inter, system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    input, button, textarea {
+        font-family: inherit;
+    }
+}
+
+/*
+  Фикс серого прямоугольника в ProgressSpinner / Timeline.
+  Tailwind v4 агрессивно навешивает border-color по умолчанию на все элементы,
+  из-за чего SVG-маски и внутренние элементы спиннера закрашиваются.
+*/
+.p-progressspinner,
+.p-progressspinner-spinner,
+.p-progressspinner-circle {
+    border-color: transparent !important;
+}
