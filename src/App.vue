@@ -14,7 +14,6 @@
       >
         <header class="topbar">
           <span class="logo">риск/скор</span>
-          <span class="muted">История</span>
         </header>
 
         <div class="hero">
@@ -94,12 +93,6 @@
           <button class="pdf-btn" data-noexport @click="exportToPDF">Скачать отчёт PDF</button>
         </div>
 
-        <div class="legend">
-          <span class="lg"><span class="sw" style="background:#D0603F"></span>повышает риск</span>
-          <span class="lg"><span class="sw" style="background:#4C9A6F"></span>снижает риск</span>
-          <span class="muted">— цвета одинаковы для признаков, факторов и слов</span>
-        </div>
-
         <div class="grid">
           <ChartComponent :features="view.features" />
           <div class="side">
@@ -111,6 +104,12 @@
             />
             <WordsComponent :words="stateData.top_words || []" />
           </div>
+        </div>
+
+        <div class="legend">
+          <span class="lg"><span class="sw" style="background:#D0603F"></span>повышает риск</span>
+          <span class="lg"><span class="sw" style="background:#4C9A6F"></span>снижает риск</span>
+          <span class="muted">— цвета одинаковы для признаков, факторов и слов</span>
         </div>
 
         <div class="footer">
@@ -595,7 +594,8 @@ const startLoading = async (payload) => {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 22px;
-  padding: 18px 0 0;
+  padding: 16px 0 18px;
+  border-top: 1px solid #E4E4DE;
   font-size: 13px;
   color: #55554F;
 }
@@ -617,7 +617,7 @@ const startLoading = async (payload) => {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: 48px;
-  padding: 22px 0 24px;
+  padding: 22px 0 20px;
 }
 
 .side {

@@ -3,7 +3,7 @@
   <section class="shap">
     <div class="head">
       <h2>Вклад признаков</h2>
-      <span class="note">SHAP-значения относительно нуля</span>
+      <span class="note">Отклонение от среднего по не-банкротам</span>
     </div>
     <div class="rows">
       <div class="row axis-top">
